@@ -1,0 +1,21 @@
+[project]
+name = "folio-mcp-local"
+version = "0.1.0"
+description = "Local Folio Norway MCP for matching invoices to bank events on macOS"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["mcp>=1.28,<2", "httpx>=0.28,<1", "keyring>=25,<26", "pypdf>=6,<7", "pypdfium2>=4.30,<5", "Pillow>=11,<13"]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+[project.scripts]
+folio-mcp = "folio_mcp.cli:main"
+[project.urls]
+Repository = "https://github.com/dansheik/folio-mcp"
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+include = ["folio_mcp*"]
+[tool.pytest.ini_options]
+pythonpath = ["."]
